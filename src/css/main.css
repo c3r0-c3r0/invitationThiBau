@@ -1,0 +1,157 @@
+/* styles.css */
+
+/* COLORS */
+:root {
+  --bg: #000;
+  --about: #e95f55;
+  --color2: #cf4a43 ;
+}
+
+
+/* Reset */
+
+* {
+  min-width: 0;
+  font: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100dvh;
+	background: var(--bg);
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+
+
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+
+}
+
+
+/* Customs */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.laurelIzq {
+  position: relative;
+  height: 400px;
+  right: 80px;
+  bottom: 100px;
+}
+
+.laurelDer {
+  position: relative;
+  height: 400px;
+  left: 80px;
+  top: 100px;
+}
+
+.invitation {
+  height: 400px;
+  position: absolute;
+  z-index: 2;
+}
+
+.paloma {
+  height: 100px;
+  position: absolute;
+  z-index: 2;
+}
+
+.letter {
+  position: absolute;
+  height: 410px;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 3px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  /*cursor: pointer;*/
+  z-index: 3;
+  transition: 1s;
+  transform-origin: left;
+  /*animation: pulse 1.5s infinite ease-in-out; */
+}
+
+.back-letter {
+  position: absolute;
+  height: 410px;
+  width: 300px;
+  background-color: #fff;
+  z-index: 1;
+  transition: 1s;
+}
+
+.letter:hover {
+  box-shadow: 20px 0px 30px rgba(0, 0, 0, 0.6);
+  transform: rotateY(180deg);
+}
+
+.letter:hover ~ .back-letter { 
+  box-shadow: -20px 0px 30px rgba(0, 0, 0, 0.6);
+}
+
+.letter:hover ~ .paloma {
+  animation: goOut 2s forwards;
+}
+
+
+
+
+@keyframes goOut {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
